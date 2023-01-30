@@ -1,14 +1,13 @@
 provider "kubernetes" {
     config_path = "~/Downloads/civo-nvrai-dev-kubeconfig"
 }
-
-module "test" {
-    source    = "../"
+module "cert-manager" {
+    source    = "mateothegreat/cert-manager/kubernetes"
+    version   = "0.0.1"
     name      = "test"
     namespace = "default"
     email     = "matthew@matthewdavis.io"
 }
-
 
 resource "kubernetes_manifest" "traefik-router" {
     manifest = {
@@ -19,7 +18,7 @@ resource "kubernetes_manifest" "traefik-router" {
             name      = "test"
             namespace = "frontends"
         }
-        
+
         spec = {
             entryPoints = [
                 "https"
