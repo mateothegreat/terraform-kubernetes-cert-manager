@@ -14,7 +14,7 @@ variable "email" {
 
 variable "server" {
     type        = string
-    value       = "https://acme-staging-v02.api.letsencrypt.org/directory"
+    default     = "https://acme-staging-v02.api.letsencrypt.org/directory"
     #    value       = "https://acme-v02.api.letsencrypt.org/directory"
     description = "Letsencrypt server to use."
 

@@ -10,7 +10,6 @@ resource "kubernetes_manifest" "cluster-issuer" {
         spec = {
             acme = {
                 server = var.server
-                #                server = "https://acme-staging-v02.api.letsencrypt.org/directory"
                 email  = var.email
 
                 privateKeySecretRef = {
